@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',  # Adicionado o rest_framework
     'apps.desafio',  # Adicionado o aplicativo desafio
 ]
 

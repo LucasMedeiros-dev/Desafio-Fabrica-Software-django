@@ -15,9 +15,9 @@ class Treinador(models.Model):
 class Pokemon(models.Model):
     treinador = models.ForeignKey(Treinador, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
-    tipo = models.CharField(max_length=100)
-    ataque_1 = models.CharField(max_length=100)
-    ataque_2 = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=100, blank=True, null=True)
+    ataque_1 = models.CharField(max_length=100, blank=True, null=True)
+    ataque_2 = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return f"{self.treinador} | {self.nome} | {self.tipo}"

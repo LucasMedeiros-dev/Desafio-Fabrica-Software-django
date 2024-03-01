@@ -7,13 +7,13 @@ Este é um projeto Django com uma API simples para gerenciar treinadores e pokem
 Primeiro, clone o repositório para sua máquina local:
 
 ```sh
-git clone <url_do_repositorio>
+git clone https://github.com/LucasMedeiros-dev/Desafio-F-brica-2.0.git
 ```
 
 Navegue até o diretório do projeto:
 
 ```sh
-cd <diretorio_do_projeto>
+cd Desafio-F-brica-2.0
 ```
 
 Instale os pacotes necessários usando pip:

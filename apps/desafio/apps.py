@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DesafioConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'desafio'
+    name = 'apps.desafio'

@@ -9,7 +9,7 @@ class Treinador(models.Model):
     idade = models.IntegerField()
 
     def __str__(self):
-        return self.nome
+        return f"{self.nome}"
 
 
 class Pokemon(models.Model):
@@ -20,4 +20,4 @@ class Pokemon(models.Model):
     ataque_2 = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nome
+        return f"{self.treinador} | {self.nome} | {self.tipo}"

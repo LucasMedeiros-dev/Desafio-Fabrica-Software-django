@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',  # Adicionado o rest_framework
+    'rest_framework.authtoken',  # Adicionada a autenticação por token do rest_framework
     'apps.desafio',  # Adicionado o aplicativo desafio
 ]
 

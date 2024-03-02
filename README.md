@@ -24,6 +24,18 @@ pip install -r requirements.txt
 
 ## Executando o Servidor
 
+Antes o servidor Django, execute as migrações:
+
+```sh
+python manage.py migrate
+```
+
+E crie um usuário:
+
+```sh
+python manage.py createsuperuser
+```
+
 Para iniciar o servidor Django, execute o seguinte comando:
 
 ```sh
@@ -31,6 +43,12 @@ python manage.py runserver
 ```
 
 O servidor será iniciado em `http://127.0.0.1:8000/`.
+
+## Tokens de Autenticação JWT
+
+É necessário passar um header com a autorização e Token
+
+Authorization: Token ey2A5Bas...
 
 ## Endpoints
 

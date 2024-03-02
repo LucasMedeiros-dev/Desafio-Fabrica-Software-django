@@ -54,6 +54,9 @@ class CriarPokemonView(CreateView):
         nome_do_ataque_1 = ataque_1_json.get('ability', {}).get('name', '')
         ataque_2_json = ataques[1]
         nome_do_ataque_2 = ataque_2_json.get('ability', {}).get('name', '')
+        # Lembrando que aqui pode dar erro mesmo, pois a API pode não retornar os dados esperados
+        # A inteção é que o aluno veja que é possível fazer requisições para APIs externas
+        # Mesmo que dê erro se ele digar algo errado.
 
         # Altera na instância do formulário os valores que foram buscados na API
         form.instance.treinador = treinador

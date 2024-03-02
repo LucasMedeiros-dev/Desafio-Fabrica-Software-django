@@ -19,5 +19,8 @@ class Pokemon(models.Model):
     ataque_1 = models.CharField(max_length=100, blank=True, null=True)
     ataque_2 = models.CharField(max_length=100, blank=True, null=True)
 
+    class Meta:
+        ordering = ['id']  # Ordena por id para paginação
+
     def __str__(self):
         return f"{self.treinador} | {self.nome} | {self.tipo}"

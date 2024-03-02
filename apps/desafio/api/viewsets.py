@@ -11,10 +11,13 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 import requests
 
+
 class PaginacaoPadrao(PageNumberPagination):
-    page_size = 5 # Quantidade de itens por página
-    page_size_query_param = 'tam_pagina' # Parâmetro para definir a quantidade de itens por página
-    max_page_size = 50 # Quantidade máxima de itens por página
+    page_size = 5  # Quantidade de itens por página
+    # Parâmetro para definir a quantidade de itens por página
+    page_size_query_param = 'tam_pagina'
+    max_page_size = 50  # Quantidade máxima de itens por página
+
 
 class TreinadorViewSet(ModelViewSet):
     '''Viewset Simples pra um CRUD de Treinadores'''
@@ -24,6 +27,7 @@ class TreinadorViewSet(ModelViewSet):
 
     permission_classes = (IsAuthenticated,)  # Permissão para acessar a API
     authentication_classes = (TokenAuthentication,)  # Autenticação por token
+    pagination_class = PaginacaoPadrao
     queryset = Treinador.objects.all()
     serializer_class = TreinadorSerializer
 
@@ -32,7 +36,7 @@ class PokemonViewSet(ModelViewSet):
     '''Viewset Simples pra um CRUD de Pokemons baseado na Pokédex API'''
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
-    pagination_class = 
+    pagination_class = PaginacaoPadrao
     queryset = Pokemon.objects.all()
     serializer_class = PokemonSerializer
 

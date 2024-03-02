@@ -8,5 +8,7 @@ urlpatterns = [
     path('api/', include('apps.desafio.api.urls')),
     path('criar-conta/', views.CriarContaView.as_view(), name='criar_conta'),
     path('login/', LoginView.as_view(template_name='desafio/login.html'), name='login'),
+    path('criar-treinador/', views.CriarTreinadorView.as_view(),
+         name='criar_treinador'),
 
 ]

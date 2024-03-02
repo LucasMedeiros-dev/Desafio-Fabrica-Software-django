@@ -3,11 +3,18 @@ from .serializers import TreinadorSerializer, PokemonSerializer
 from rest_framework.viewsets import ModelViewSet
 # Importa as classes dentro do arquivo .models.py que se dois níveis acima do diretório (..)
 from ..models import Treinador, Pokemon
+# Importa as classes de permissões e autenticações do rest_framework
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
+# Importa as classes de paginação do rest_framework
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 import requests
 
+class PaginacaoPadrao(PageNumberPagination):
+    page_size = 5 # Quantidade de itens por página
+    page_size_query_param = 'tam_pagina' # Parâmetro para definir a quantidade de itens por página
+    max_page_size = 50 # Quantidade máxima de itens por página
 
 class TreinadorViewSet(ModelViewSet):
     '''Viewset Simples pra um CRUD de Treinadores'''
@@ -25,6 +32,7 @@ class PokemonViewSet(ModelViewSet):
     '''Viewset Simples pra um CRUD de Pokemons baseado na Pokédex API'''
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
+    pagination_class = 
     queryset = Pokemon.objects.all()
     serializer_class = PokemonSerializer
 

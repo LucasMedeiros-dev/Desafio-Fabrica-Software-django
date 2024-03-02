@@ -9,8 +9,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 
 class CriarContaView(CreateView):
-    template_name = 'criar_conta.html'
-    success_url = reverse_lazy('desafio:treinador')
+    template_name = 'desafio/criar_conta.html'
+    success_url = reverse_lazy('desafio:login')
     # Define o modelo que será utilizado
     model = User
     # Define os campos que serão utilizados

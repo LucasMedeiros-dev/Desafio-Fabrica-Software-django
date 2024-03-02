@@ -1,3 +1,5 @@
+import requests
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView
@@ -45,7 +47,7 @@ class TreinadorDetailView(DetailView):
 
 # ===== POKEMONS =====
 class PokemonCreateView(CreateView):
-    template_name = "desafio/criar_pokemon.html"
+    template_name = "desafio/pokemon_form.html"
     # Define o modelo que será utilizado
     model = Pokemon
     # Define os campos que serão utilizados

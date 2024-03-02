@@ -1,10 +1,7 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.contrib.auth.models import User
 from django.views.generic import CreateView, DetailView
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.models import User
 from .models import Treinador, Pokemon
+from django.urls import reverse_lazy
 import requests
 # Create your views here.
 
@@ -22,7 +19,7 @@ class CriarContaView(CreateView):
 
 class CriarTreinadorView(CreateView):
     template_name = 'desafio/criar_treinador.html'
-    success_url = reverse_lazy('desafio:login')
+    success_url = reverse_lazy('desafio:criar_pokemon')
     # Define o modelo que será utilizado
     model = Treinador
     # Define os campos que serão utilizados
@@ -31,7 +28,6 @@ class CriarTreinadorView(CreateView):
 
 class CriarPokemonView(CreateView):
     template_name = 'desafio/criar_pokemon.html'
-    success_url = reverse_lazy('desafio:login')
     # Define o modelo que será utilizado
     model = Pokemon
     # Define os campos que serão utilizados
@@ -69,4 +65,10 @@ class CriarPokemonView(CreateView):
 
     # Redireciona para a página de detalhes do pokemon
     def get_success_url(self):
-        return reverse_lazy('pokemon-detail', kwargs={'pk': self.object.pk})
+        return reverse_lazy('desafio:pokemon_detail', kwargs={'pk': self.object.pk})
+
+
+class PokemonDetailView(DetailView):
+    template_name = 'desafio/pokemon.html'
+    model = Pokemon
+    context_object_name = 'pokemon'

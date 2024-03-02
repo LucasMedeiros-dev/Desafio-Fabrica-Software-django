@@ -1,6 +1,8 @@
 from django import forms
 
 from .models import Treinador, Pokemon
+from django.contrib.auth.models import User
+from .utils.create_selects import create_user_choices, create_trainer_choices
 
 
 class TreinadorForm(forms.ModelForm):
@@ -13,6 +15,9 @@ class TreinadorForm(forms.ModelForm):
             "nome",
             "idade",
         )
+        widgets = {
+            "usuario": forms.Select(choices=create_user_choices()),
+        }
 
 
 class PokemonForm(forms.ModelForm):
@@ -24,3 +29,6 @@ class PokemonForm(forms.ModelForm):
             "treinador",
             "nome",
         )
+        widgets = {
+            "usuario": forms.Select(choices=create_trainer_choices()),
+        }
